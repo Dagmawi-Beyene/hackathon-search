@@ -53,5 +53,14 @@ And run
 ```
 main:app --host 0.0.0.0 --port 8001
 ```
+## How to use it with docker
+On the root folder
+```
+docker build -t meillisearch-hackathon:1.0 .
+```
+Then
+```
+docker run -d -p 8080:80 meillisearch-hackathon:1.0
+```
 
 
