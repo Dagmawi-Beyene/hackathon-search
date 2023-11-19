@@ -47,22 +47,11 @@ install the dependencies:
 ```
 pip3 install -r requirements.txt
 ```
-start the server:
+Add the required env (.env.gcp.yaml.example) in a .env file
+
+And run 
 ```
-python3 main.py
+main:app --host 0.0.0.0 --port 8001
 ```
 
-## How to run the frontend:
-cd into the directory:
-```
-cd frontend
-```
-install the dependencies:
-```
-pnpm install
-```
-start the server:
-```
-pnpm run dev
-```
 
