@@ -1,18 +1,22 @@
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
+import { HashLoader } from "react-spinners"; // The spinner we're going to use
+
 
 
 function App() {
   const [searchResults, setSearchResults] = useState({hits: []})
+  const [isLoading, setIsLoading] = useState(false);
+  
   return (
     <section className="flex flex-col items-center p-6">
       <div className="flex flex-col items-center w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4">Meeting transcript Search</h1>
         <div className="flex w-full mb-6">
-          <SearchBar setSearchResults={setSearchResults}/>
+          <SearchBar setSearchResults={setSearchResults} setIsLoading={setIsLoading}/>
         </div>
         <ul className="w-full space-y-4">
-          {searchResults.hits.map((result: any) => (
+          {!isLoading && searchResults.hits.map((result: any) => (
                    <li className="flex flex-col p-4 bg-white rounded-md shadow">
                    <p className="text-blue-600 hover:underline mb-2">
                        {`From: ${result.start_time} - ${result.end_time}`}
@@ -32,6 +36,10 @@ function App() {
             
                </li>
                ))}
+
+<div className="loader-container">
+        <HashLoader loading={isLoading} color={"#fff"} size={20} />
+      </div>
           
         </ul>
       </div>
