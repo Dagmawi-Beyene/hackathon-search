@@ -1,0 +1,4 @@
+meilisearch==0.28.4
+openai==0.28.1
+python-dotenv==1.0.0
+
